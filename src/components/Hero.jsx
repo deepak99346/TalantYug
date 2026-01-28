@@ -5,7 +5,7 @@ export default function Hero(){
     <section className="max-w-6xl mx-auto py-16 md:py-20 px-6">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div className="animate-fadeUp">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Placement Infrastructure for Bihar Government college Colleges</h1>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Placement Infrastructure for Indian Government college Colleges</h1>
           <p className="mt-4 text-lg text-slate-700">Connect Colleges, Companies & Students through one structured platform.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <button className="btn-primary transition-transform transform hover:-translate-y-1">For Colleges</button>
