@@ -8,6 +8,9 @@ import ForCompanies from './pages/ForCompanies'
 import ForStudents from './pages/ForStudents'
 import About from './pages/About'
 import Resources from './pages/Resources'
+import Dashboard from './pages/Dashboard'
+import EventManage from './pages/EventManage'
+import Aggregated from './pages/Aggregated'
 
 export default function App(){
   return (
@@ -21,6 +24,9 @@ export default function App(){
           <Route path="/students" element={<ForStudents/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/resources" element={<Resources/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/event/:id" element={<EventManage/>} />
+          <Route path="/aggregated" element={<Aggregated/>} />
         </Routes>
       </main>
       <Footer />

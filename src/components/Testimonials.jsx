@@ -7,7 +7,7 @@ export default function Testimonials(){
     {title: 'Student Story', text: '"Got placed through campus drive!"'}
   ]
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 animate-fadeUp">
+    <section className="max-w-6xl mx-auto px-6 py-12 transition-smooth stagger">
       <h3 className="text-2xl font-bold">Testimonials & Case Study</h3>
       <div className="mt-6 grid md:grid-cols-3 gap-6">
         {cards.map((c,i)=> (

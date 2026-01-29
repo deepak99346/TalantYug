@@ -8,7 +8,7 @@ export default function Stats(){
     {title: '5000+ Students'}
   ]
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 animate-fadeUp">
+    <section className="max-w-6xl mx-auto px-6 py-12 transition-smooth stagger">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {items.map((it, idx)=> (
           <div key={idx} className="card text-center animate-fadeUp" style={{animationDelay: `${idx * 80}ms`}}>
