@@ -7,7 +7,7 @@ export default function Solutions(){
     {title: 'Student Career Preparation', text: 'Resources, mock interviews and tracking.'}
   ]
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 animate-fadeUp">
+    <section className="max-w-6xl mx-auto px-6 py-12 transition-smooth stagger">
       <h2 className="text-3xl font-bold">TalentYug solves this with Placement Infrastructure</h2>
       <div className="mt-6 grid md:grid-cols-3 gap-6">
         {blocks.map((b,i)=> (

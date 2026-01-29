@@ -1,6 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Primary color variable and helper utility classes */
+:root{
+  --primary: #48C6DD;
+}
+
+.text-primary{ color: var(--primary); }
+.bg-primary{ background-color: var(--primary); }
+.border-primary{ border-color: var(--primary); }
+.fill-primary{ fill: var(--primary); }
+
+/* Animation timing variables and helpers */
+:root{
+  --anim-duration: 420ms;
+  --anim-short: 180ms;
+  --anim-ease: cubic-bezier(.2,.9,.2,1);
+}
+
+/* Smooth transition utilities */
+.transition-smooth{ transition: all var(--anim-duration) var(--anim-ease); }
+.transition-fast{ transition: all var(--anim-short) var(--anim-ease); }
+
+/* Entrance animations */
+@keyframes pop {
+  from { opacity: 0; transform: scale(.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(14px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeUpLarge {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pop{ animation: pop var(--anim-duration) var(--anim-ease) both; }
+.animate-slideInLeft{ animation: slideInLeft var(--anim-duration) var(--anim-ease) both; }
+.animate-slideInRight{ animation: slideInRight var(--anim-duration) var(--anim-ease) both; }
+.animate-fadeUpLarge{ animation: fadeUpLarge var(--anim-duration) var(--anim-ease) both; }
+
+/* Stagger helper: apply to parent to animate children sequentially */
+.stagger > *{ animation: fadeUpLarge var(--anim-duration) var(--anim-ease) both; }
+.stagger > *:nth-child(1){ animation-delay: 40ms }
+.stagger > *:nth-child(2){ animation-delay: 120ms }
+.stagger > *:nth-child(3){ animation-delay: 200ms }
+.stagger > *:nth-child(4){ animation-delay: 280ms }
+.stagger > *:nth-child(5){ animation-delay: 360ms }
+
+/* Ensure reduced motion respects user preference */
+@media (prefers-reduced-motion: reduce){
+  .transition-smooth, .transition-fast, .animate-pop, .animate-slideInLeft, .animate-slideInRight, .animate-fadeUpLarge, .stagger > * { transition: none !important; animation: none !important; }
+}
+
 
 html, body, #root {
   height: 100%;
@@ -10,12 +69,12 @@ html { scroll-behavior: smooth; }
 
 body {
   @apply bg-gradient-to-b from-slate-50 via-white to-sky-50 text-slate-800;
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: cursive, "Brush Script MT", "Comic Sans MS", "Segoe Script", "Pacifico", sans-serif;
 }
 
 /* Headings use Poppins for a distinctive look */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', 'Inter', ui-sans-serif;
+  font-family: 'Poppins', 'Inter', ui-sans-serif, cursive;
   letter-spacing: -0.01em;
 }
 
@@ -56,6 +115,11 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeUp 320ms ease both;
 }
 
+/* Use system sans-serif stack for navbar (no external font import) */
+.navbar-font {
+  font-family: cursive, "Brush Script MT", "Comic Sans MS", "Segoe Script", "Pacifico", sans-serif;
+}
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .card, .btn-primary, .btn-ghost, .animate-fadeUp, .animate-fadeIn, .slide-down { animation: none !important; transition: none !important; }
@@ -74,7 +138,7 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0px;
   height: 2px;
   width: 0;
-  background: rgba(56,189,248,0.95);
+  background: var(--primary);
   border-radius: 2px;
   transition: width 260ms cubic-bezier(.2,.9,.2,1);
 }
